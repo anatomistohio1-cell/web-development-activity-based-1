@@ -1,0 +1,236 @@
+/* =========================================================
+   Noted – shared stylesheet for the account pages
+   (login, register, forgot password, profile setup)
+   No JavaScript: validation uses HTML attributes + CSS states
+   ========================================================= */
+
+/* ---------- Tokens ---------- */
+:root {
+  --ink: #16213e;
+  --ink-soft: #4a5578;
+  --paper: #f4f5f9;
+  --white: #ffffff;
+  --line: #c3cadd;
+  --blue: #2d5bff;
+  --blue-dark: #1f43c7;
+  --blue-wash: #eaf0ff;
+  --yellow: #ffc83d;
+  --error: #b42318;
+  --error-bg: #fef3f2;
+  --ok: #067647;
+  --ok-bg: #ecfdf3;
+  --radius: 10px;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+h1, h2, .logo, .pitch-title {
+  font-family: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  line-height: 1.15;
+}
+
+a { color: var(--blue-dark); }
+a:hover { color: var(--ink); }
+a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 3px; }
+
+.skip {
+  position: absolute; left: 1rem; top: -4rem; z-index: 10;
+  padding: .6rem 1rem; border-radius: var(--radius);
+  background: var(--yellow); color: var(--ink); font-weight: 600;
+}
+.skip:focus { top: 1rem; }
+
+/* ---------- Page layout (Grid) ---------- */
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(18rem, 5fr) minmax(0, 7fr);
+}
+
+/* Left brand panel */
+.brand {
+  display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;
+  padding: 2.5rem 3rem;
+  background: var(--ink); color: var(--white);
+}
+.logo {
+  font-size: 1.75rem; font-weight: 700; letter-spacing: -.01em;
+  color: var(--white); text-decoration: none;
+}
+.logo::after {
+  content: ""; display: inline-block; width: .5rem; height: .5rem;
+  margin-left: .2rem; border-radius: 50%; background: var(--yellow);
+}
+.pitch-title { margin: 0 0 1.25rem; max-width: 16ch; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; }
+.pitch-list { display: grid; gap: .75rem; margin: 0; padding: 0; list-style: none; color: #d3d9ef; }
+.pitch-list li { position: relative; padding-left: 1.6rem; }
+.pitch-list li::before {
+  content: ""; position: absolute; left: 0; top: .6em;
+  width: .75rem; height: .2rem; border-radius: 2px; background: var(--yellow);
+}
+.brand-foot { margin: 0; font-size: .9rem; color: #a3aed2; }
+
+/* Right form panel */
+.panel { display: grid; place-items: center; padding: 2.5rem 1.5rem; }
+.card { width: 100%; max-width: 30rem; }
+.card h1 { margin: 0 0 .35rem; font-size: 2rem; font-weight: 700; }
+.lead { margin: 0 0 1.75rem; color: var(--ink-soft); }
+.step { margin: 0 0 .5rem; font-size: .95rem; font-weight: 600; color: var(--blue-dark); }
+
+/* ---------- Form structure ---------- */
+.form { display: grid; gap: 1.25rem; }
+.field { display: grid; gap: .4rem; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1rem; }
+
+label, legend { font-weight: 600; }
+fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+legend { padding: 0; margin-bottom: .5rem; }
+.optional { font-weight: 400; color: var(--ink-soft); }
+.hint { margin: 0; font-size: .92rem; color: var(--ink-soft); }
+
+/* ---------- Text controls ---------- */
+.control {
+  width: 100%;
+  padding: .7rem .85rem;
+  font: inherit; color: inherit;
+  background: var(--white);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  outline: 2px solid transparent;          /* keeps a visible ring in forced-colors mode */
+  transition: border-color .15s, box-shadow .15s;
+}
+.control::placeholder { color: #7b85a6; }
+textarea.control { min-height: 7rem; resize: vertical; }
+
+/* Focus state */
+.control:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(45, 91, 255, .2);
+}
+
+/* Error state – shown only after the person has typed or left the field.
+   Two separate rules so older browsers ignore :user-invalid safely. */
+.control:user-invalid {
+  border-color: var(--error);
+  background: var(--error-bg);
+}
+.control:not(:placeholder-shown):invalid {
+  border-color: var(--error);
+  background: var(--error-bg);
+}
+.control:user-invalid:focus,
+.control:not(:placeholder-shown):invalid:focus {
+  box-shadow: 0 0 0 4px rgba(180, 35, 24, .18);
+}
+
+/* Valid state */
+.control:user-valid { border-color: var(--ok); }
+
+/* Error message (hidden until its field is invalid) */
+.error {
+  display: none;
+  margin: 0;
+  font-size: .92rem; font-weight: 600; color: var(--error);
+}
+.error::before { content: "Error: "; }
+.field:has(.control:user-invalid) .error { display: block; }
+.control:not(:placeholder-shown):invalid ~ .error { display: block; }
+
+/* ---------- Checkbox and radio ---------- */
+.check { display: flex; align-items: flex-start; gap: .6rem; font-weight: 400; }
+.check input { flex: none; width: 1.25rem; height: 1.25rem; margin: .2rem 0 0; accent-color: var(--blue); }
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+/* Chips (checkbox group) */
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chip { position: relative; font-weight: 400; }
+.chip input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.chip span {
+  display: inline-block; padding: .4rem .9rem;
+  border: 2px solid var(--line); border-radius: 99px; background: var(--white);
+}
+.chip input:checked + span { background: var(--ink); border-color: var(--ink); color: var(--white); }
+.chip input:focus-visible + span { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+/* Radio list */
+.choices { display: grid; gap: .5rem; }
+.choice {
+  display: flex; gap: .7rem; align-items: flex-start;
+  padding: .7rem .85rem; font-weight: 400;
+  border: 2px solid var(--line); border-radius: var(--radius); background: var(--white);
+}
+.choice input { flex: none; width: 1.2rem; height: 1.2rem; margin: .2rem 0 0; accent-color: var(--blue); }
+.choice:has(input:checked) { border-color: var(--blue); background: var(--blue-wash); }
+.choice:has(input:focus-visible) { outline: 3px solid var(--blue); outline-offset: 2px; }
+.choice small { display: block; color: var(--ink-soft); }
+
+/* File upload */
+.file {
+  width: 100%; padding: .6rem; font: inherit;
+  border: 2px dashed var(--line); border-radius: var(--radius); background: var(--white);
+}
+.file::file-selector-button {
+  margin-right: .8rem; padding: .5rem .9rem;
+  font: inherit; font-weight: 600; color: var(--blue-dark);
+  border: 2px solid var(--blue); border-radius: 8px; background: var(--blue-wash); cursor: pointer;
+}
+.file:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block; padding: .8rem 1.25rem;
+  font: inherit; font-weight: 600; text-align: center; text-decoration: none;
+  color: var(--white); background: var(--blue);
+  border: 2px solid var(--blue); border-radius: var(--radius); cursor: pointer;
+}
+.btn:hover { color: var(--white); background: var(--blue-dark); border-color: var(--blue-dark); }
+.btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.btn-ghost { color: var(--blue-dark); background: transparent; }
+.btn-ghost:hover { color: var(--blue-dark); background: var(--blue-wash); }
+.actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.actions .btn:first-child { flex: 1 1 12rem; }
+
+.switch { margin: 1.5rem 0 0; color: var(--ink-soft); }
+
+/* ---------- Alerts ---------- */
+.alert {
+  margin: 0 0 1.25rem; padding: .8rem 1rem;
+  font-weight: 600; color: var(--error);
+  background: var(--error-bg); border: 1px solid #f4b4ad; border-radius: var(--radius);
+}
+.alert[hidden] { display: none; }
+.alert-ok { color: var(--ok); background: var(--ok-bg); border-color: #a6e3c2; }
+
+/* Password recovery: confirmation shown with :target (no JavaScript) */
+.sent { display: none; }
+.sent:target { display: block; }
+.sent h2 { margin: 0 0 .5rem; font-size: 1.6rem; }
+.card:has(.sent:target) .intro,
+.card:has(.sent:target) .form,
+.card:has(.sent:target) .switch { display: none; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 860px) {
+  .page { grid-template-columns: 1fr; }
+  .brand { gap: .5rem; padding: 1.25rem 1.5rem; }
+  .pitch-title { max-width: none; margin: 0; font-size: 1.2rem; }
+  .pitch-list, .brand-foot { display: none; }
+  .panel { padding: 1.75rem 1rem 2.5rem; }
+  .two { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .control { transition: none; }
+}

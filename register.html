@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/auth.css">
+<title>Create account – Noted</title>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the form</a>
+<div class="page">
+  <aside class="brand">
+    <a class="logo" href="login.html">Noted</a>
+    <div>
+      <p class="pitch-title">Start with a free account.</p>
+      <ul class="pitch-list">
+        <li>Set up in under a minute</li>
+        <li>Add your subjects and deadlines next</li>
+        <li>Change your details any time</li>
+      </ul>
+    </div>
+    <p class="brand-foot">College project demo</p>
+  </aside>
+
+  <main id="main" class="panel">
+    <div class="card">
+      <h1>Create your account</h1>
+      <p class="lead">Fill in the details below. You can set up your profile next.</p>
+
+      <form class="form" action="profile-setup.html" method="post">
+        <div class="two">
+          <div class="field">
+            <label for="first">First name</label>
+            <input class="control" id="first" name="first_name" type="text"
+                   placeholder="Asha" autocomplete="given-name"
+                   required minlength="2" maxlength="40" aria-describedby="first-error">
+            <p class="error" id="first-error">Enter your first name (at least 2 letters).</p>
+          </div>
+          <div class="field">
+            <label for="last">Last name</label>
+            <input class="control" id="last" name="last_name" type="text"
+                   placeholder="Rao" autocomplete="family-name"
+                   required minlength="2" maxlength="40" aria-describedby="last-error">
+            <p class="error" id="last-error">Enter your last name (at least 2 letters).</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email address</label>
+          <input class="control" id="email" name="email" type="email"
+                 placeholder="name@college.edu" autocomplete="email"
+                 required aria-describedby="email-error">
+          <p class="error" id="email-error">Enter a valid email address, like name@college.edu.</p>
+        </div>
+
+        <div class="field">
+          <label for="phone">Mobile number <span class="optional">(optional)</span></label>
+          <input class="control" id="phone" name="phone" type="tel"
+                 placeholder="9876543210" autocomplete="tel-national"
+                 pattern="[0-9]{10}" inputmode="numeric" aria-describedby="phone-hint phone-error">
+          <p class="hint" id="phone-hint">10 digits, no spaces.</p>
+          <p class="error" id="phone-error">Use exactly 10 digits, with no spaces or symbols.</p>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input class="control" id="password" name="password" type="password"
+                 placeholder="Create a password" autocomplete="new-password"
+                 required minlength="8" maxlength="64"
+                 pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}"
+                 title="At least 8 characters with one lowercase letter, one uppercase letter and one number"
+                 aria-describedby="password-hint password-error">
+          <p class="hint" id="password-hint">At least 8 characters, with a lowercase letter, an uppercase letter and a number.</p>
+          <p class="error" id="password-error">Your password needs 8 or more characters, including a lowercase letter, an uppercase letter and a number.</p>
+        </div>
+
+        <div class="field">
+          <label for="confirm">Confirm password</label>
+          <!-- Matching the two passwords needs JavaScript or the backend -->
+          <input class="control" id="confirm" name="confirm_password" type="password"
+                 placeholder="Type the password again" autocomplete="new-password"
+                 required minlength="8" aria-describedby="confirm-error">
+          <p class="error" id="confirm-error">Type your password again (at least 8 characters).</p>
+        </div>
+
+        <label class="check" for="terms">
+          <input id="terms" name="terms" type="checkbox" required>
+          <span>I agree to the <a href="#">terms of use</a> and <a href="#">privacy notice</a>.</span>
+        </label>
+
+        <button class="btn" type="submit">Create account</button>
+      </form>
+
+      <p class="switch">Already have an account? <a href="login.html">Log in</a></p>
+    </div>
+  </main>
+</div>
+</body>
+</html>

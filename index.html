@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Events App – Tallyboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<div class="app">
+
+  <!-- ============ Sidebar ============ -->
+  <aside class="sidebar">
+    <a class="logo" href="index.html">Tallyboard</a>
+
+    <nav class="nav" aria-label="Main">
+      <a href="#overview" aria-current="page">Overview</a>
+      <a href="#board">Board</a>
+      <a href="#team">Team</a>
+    </nav>
+
+    <div class="side-projects">
+      <p class="side-title">Your projects</p>
+      <ul>
+        <li><a href="#">Campus Events App <span>33%</span></a></li>
+        <li><a href="#">Alumni Newsletter <span>71%</span></a></li>
+        <li><a href="#">Library Kiosk Update <span>12%</span></a></li>
+      </ul>
+    </div>
+
+    <p class="side-foot">College project demo</p>
+  </aside>
+
+  <!-- ============ Main ============ -->
+  <main class="main" id="main">
+
+    <header class="page-head">
+      <div>
+        <h1>Campus Events App</h1>
+        <p class="meta">
+          Due <time datetime="2026-11-20">20 Nov 2026</time> (27 days left).
+          Today is <time datetime="2026-10-24">24 Oct 2026</time>.
+        </p>
+      </div>
+      <div class="head-side">
+        <div class="avatars" aria-label="Team members">
+          <span class="avatar a1"><span aria-hidden="true">AR</span><span class="sr">Asha Rao</span></span>
+          <span class="avatar a2"><span aria-hidden="true">RV</span><span class="sr">Ravi Varma</span></span>
+          <span class="avatar a3"><span aria-hidden="true">MK</span><span class="sr">Meera Kapoor</span></span>
+          <span class="avatar a4"><span aria-hidden="true">SN</span><span class="sr">Sneha Nair</span></span>
+          <span class="avatar a5"><span aria-hidden="true">DP</span><span class="sr">Dev Patel</span></span>
+        </div>
+        <a class="btn" href="#team">Invite teammate</a>
+      </div>
+    </header>
+
+    <!-- ============ Summary ============ -->
+    <section id="overview" aria-label="Project summary">
+      <div class="summary">
+        <div class="stat">
+          <p class="stat-label">Tasks in total</p>
+          <p class="stat-value">15</p>
+        </div>
+        <div class="stat">
+          <p class="stat-label">Completed</p>
+          <p class="stat-value">5 <small>of 15</small></p>
+        </div>
+        <div class="stat">
+          <p class="stat-label">Due this week</p>
+          <p class="stat-value">5</p>
+        </div>
+        <div class="stat stat-alert">
+          <p class="stat-label">Overdue</p>
+          <p class="stat-value">1</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Projects + Team ============ -->
+    <div class="overview">
+
+      <section class="panel" aria-labelledby="projects-title">
+        <h2 id="projects-title">Projects</h2>
+        <ul class="project-list">
+          <li class="project">
+            <div class="project-top">
+              <p class="project-name"><a href="#">Campus Events App</a></p>
+              <p>33%</p>
+            </div>
+            <progress value="33" max="100" aria-label="Campus Events App progress">33%</progress>
+            <p class="project-info"><span>5 of 15 tasks done</span><span>Due 20 Nov</span></p>
+          </li>
+          <li class="project">
+            <div class="project-top">
+              <p class="project-name"><a href="#">Alumni Newsletter</a></p>
+              <p>71%</p>
+            </div>
+            <progress class="bar-green" value="71" max="100" aria-label="Alumni Newsletter progress">71%</progress>
+            <p class="project-info"><span>10 of 14 tasks done</span><span>Due 5 Nov</span></p>
+          </li>
+          <li class="project">
+            <div class="project-top">
+              <p class="project-name"><a href="#">Library Kiosk Update</a></p>
+              <p>12%</p>
+            </div>
+            <progress value="12" max="100" aria-label="Library Kiosk Update progress">12%</progress>
+            <p class="project-info"><span>1 of 8 tasks done</span><span>Due 15 Dec</span></p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="panel" id="team" aria-labelledby="team-title">
+        <h2 id="team-title">Team</h2>
+        <ul class="team-list">
+          <li class="member">
+            <span class="avatar a1"><span aria-hidden="true">AR</span><span class="sr">Asha Rao</span></span>
+            <p class="member-name">Asha Rao</p>
+            <p class="member-role">Frontend lead</p>
+            <p class="member-load"><progress value="2" max="4" aria-label="Open tasks for Asha"></progress> 2 open</p>
+          </li>
+          <li class="member">
+            <span class="avatar a2"><span aria-hidden="true">RV</span><span class="sr">Ravi Varma</span></span>
+            <p class="member-name">Ravi Varma</p>
+            <p class="member-role">Backend developer</p>
+            <p class="member-load"><progress value="2" max="4" aria-label="Open tasks for Ravi"></progress> 2 open</p>
+          </li>
+          <li class="member">
+            <span class="avatar a3"><span aria-hidden="true">MK</span><span class="sr">Meera Kapoor</span></span>
+            <p class="member-name">Meera Kapoor</p>
+            <p class="member-role">Designer</p>
+            <p class="member-load"><progress value="2" max="4" aria-label="Open tasks for Meera"></progress> 2 open</p>
+          </li>
+          <li class="member">
+            <span class="avatar a4"><span aria-hidden="true">SN</span><span class="sr">Sneha Nair</span></span>
+            <p class="member-name">Sneha Nair</p>
+            <p class="member-role">Content and integrations</p>
+            <p class="member-load"><progress value="3" max="4" aria-label="Open tasks for Sneha"></progress> 3 open</p>
+          </li>
+          <li class="member">
+            <span class="avatar a5"><span aria-hidden="true">DP</span><span class="sr">Dev Patel</span></span>
+            <p class="member-name">Dev Patel</p>
+            <p class="member-role">Tester</p>
+            <p class="member-load"><progress value="1" max="4" aria-label="Open tasks for Dev"></progress> 1 open</p>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- ============ Kanban board ============ -->
+    <section id="board" aria-labelledby="board-title">
+      <div class="board-head">
+        <h2 id="board-title">Board</h2>
+        <ul class="legend" aria-label="Priority colours">
+          <li class="l-high">High priority</li>
+          <li class="l-med">Medium priority</li>
+          <li class="l-low">Low priority</li>
+        </ul>
+      </div>
+
+      <div class="board-scroll" tabindex="0" role="region" aria-label="Task board, scrolls sideways on small screens">
+        <div class="board">
+
+          <!-- Backlog -->
+          <section class="column" aria-labelledby="col-backlog">
+            <h3 id="col-backlog">Backlog <span class="count">3</span></h3>
+
+            <article class="task priority-high">
+              <div class="task-top"><p class="task-tag">Backend</p><p class="task-priority">High</p></div>
+              <h4 class="task-title">Set up push notification service</h4>
+              <div class="task-progress">
+                <progress value="0" max="4" aria-label="Subtasks complete">0 of 4</progress>
+                <span>0 of 4 subtasks</span>
+              </div>
+              <div class="task-foot">
+                <time datetime="2026-11-06">Due 6 Nov</time>
+                <span class="avatar a2"><span aria-hidden="true">RV</span><span class="sr">Ravi Varma</span></span>
+              </div>
+            </article>
+
+            <article class="task priority-med">
+              <div class="task-top"><p class="task-tag">Content</p><p class="task-priority">Medium</p></div>
+              <h4 class="task-title">Write privacy notice for sign-up</h4>
+              <div class="task-progress">
+                <progress value="0" max="2" aria-label="Subtasks complete">0 of 2</progress>
+                <span>0 of 2 subtasks</span>
+              </div>
+              <div class="task-foot">
+                <time datetime="2026-11-10">Due 10 Nov</time>
+                <span class="avatar a4"><span aria-hidden="true">SN</span><span class="sr">Sneha Nair</span></span>
+              </div>
+            </article>
+
+            <article class="task priority-low">
+              <div class="task-top"><p class="task-tag">Design</p><p class="task-priority">Low</p></div>
+              <h4 class="task-title">Draft event poster templates</h4>
+              <div class="task-progress">
+                <progress value="0" max="3" aria-label="Subtasks complete">0 of 3</progress>
+                <span>0 of 3 subtasks</span>
+              </div>
+              <div class="task-foot">
+                <time datetime="2026-11-12">Due 12 Nov</time>
+                <span class="avatar a3"><span aria-hidden="true">MK</span><span class="sr">Meera Kapoor</span></span>
+              </div>
+            </article>
+          </section>
+
+          <!-- In progress -->
+          <section class="column" aria-labelledby="col-progress">
+            <h3 id="col-progress">In progress <span class="count">4</span></h3>
+
+            <article class="task priority-high">
+              <div class="task-top"><p class="task-tag">Backend</p><p class="task-priority">High</p></div>
+              <h4 class="task-title">Connect sign-up form to database</h4>
+              <div class="task-progress">
+                <progress value="2" max="4" aria-label="Subtasks complete">2 of 4</progress>
+                <span>2 of 4 subtasks</span>
+              </div>
+              <div class="task-foot">
+                <time class="overdue" datetime="2026-10-22">Overdue: 22 Oct</time>
+                <span class="avatar a2"><span aria-hidden="true">RV</span><span class="sr">Ravi Varma</span></span>
+              </div>
+            </article>
+
+            <article class="task priority-high">
+              <div class="task-top"><p class="task-tag">Frontend</p><p class="task-priority">High</p></div>
+              <h4 class="task-title">Build event listing page</h4>
+              <div class="task-progress">
+                <progress value="3" max="5" aria-label="Subtasks complete">3 of 5</progress>
+                <span>3 of 5 subtasks</span>
+              </div>
+              <div class="task-foot">
+                <time datetime="2026-10-28">Due 28 Oct</time>
+                <span class="avatar a1"><span aria-hidden="true">AR</span><span class="sr">Asha Rao</span></span>
+              </div>
+            </article>
+
+            <article class="task priority-med">
+              <div class="task-top"><p class="task-tag">Design</p><p class="task-priority">Medium</p></div>
+              <h4 class="task-title">Design RSVP flow screens</h4>
+              <div class="task-progress">
+                <progress value="4" max="6" aria-label="Subtasks complete">4 of 6</progress>
+                <span>4 of 6 subtasks</span>
+              </div>
+              <div class="task-foot">
+                <time datetime="2026-10-30">Due 30 Oct</time>
+                <span class="avatar a3"><span aria-hidden="true">MK</span><span class="sr">Meera Kapoor</span></span>
+              </div>
+            </article>
+
+            <article class="task priority-low">
+              <div class="task-top"><p class="task-tag">Testing</p><p class="task-priority">Low</p></div>
+              <h4 class="task-title">Test login on mobile browsers</h4>
+              <div class="task-progress">
+                <progress value="1" max="3" aria-label="Subtasks complete">1 of 3</progress>
+                <span>1 of 3 subtasks</span>
+              </div>
+              <div class="task-foot">
+                <time datetime="2026-11-03">Due 3 Nov</time>
+                <span class="avatar a5"><span aria-hidden="true">DP</span><span class="sr">Dev Patel</span></span>
+              </div>
+            </article>
+          </section>
+
+          <!-- In review -->
+          <section class="column" aria-labelledby="col-review">
+            <h3 id="col-review">In review <span class="count">3</span></h3>
+
+            <article class="task priority-low">
+              <div class="task-top"><p class="task-tag">Frontend</p><p class="task-priority">Low</p></div>
+              <h4 class="task-title">Event card component</h4>
+              <div class="task-progress">
+                <progress class="bar-green" value="3" max="3" aria-label="Subtasks complete">3 of 3</progress>
+                <span>3 of 3 subtasks</span>
+              </div>
+              <div class="task-foot">
+                <time datetime="2026-10-26">Due 26 Oct</time>
+                <span class="avatar a1"><span aria-hidden="true">AR</span><span class="sr">Asha Rao</span></span>
+              </div>
+            </article>
+
+            <article class="task priority-med">
+              <div class="task-top"><p class="task-tag">Backend</p><p class="task-priority">Medium</p></div>
+              <h4 class="task-title">Calendar sync with Google</h4>
+              <div class="task-progress">
+                <progress class="bar-green" value="4" max="4" aria-label="Subtasks complete">4 of 4</progress>
+                <span>4 of 4 subtasks</span>
+              </div>
+              <div class="task-foot">
+                <time datetime="2026-10-27">Due 27 Oct</time>
+                <span class="avatar a4"><span aria-hidden="true">SN</span><span class="sr">Sneha Nair</span></span>
+              </div>
+            </article>
+
+            <article class="task priority-med">
+              <div class="task-top"><p class="task-tag">Content</p><p class="task-priority">Medium</p></div>
+              <h4 class="task-title">Onboarding screen copy</h4>
+              <div class="task-progress">
+                <progress class="bar-green" value="2" max="2" aria-label="Subtasks complete">2 of 2</progress>
+                <span>2 of 2 subtasks</span>
+              </div>
+              <div class="task-foot">
+                <time datetime="2026-10-29">Due 29 Oct</time>
+                <span class="avatar a4"><span aria-hidden="true">SN</span><span class="sr">Sneha Nair</span></span>
+              </div>
+            </article>
+          </section>
+
+          <!-- Done -->
+          <section class="column" aria-labelledby="col-done">
+            <h3 id="col-done">Done <span class="count">5</span></h3>
+
+            <article class="task priority-low is-done">
+              <div class="task-top"><p class="task-tag">Design</p><p class="task-priority">Low</p></div>
+              <h4 class="task-title">Choose colour palette and fonts</h4>
+              <div class="task-foot">
+                <time datetime="2026-10-15">Done 15 Oct</time>
+                <span class="avatar a3"><span aria-hidden="true">MK</span><span class="sr">Meera Kapoor</span></span>
+              </div>
+            </article>
+
+            <article class="task priority-med is-done">
+              <div class="task-top"><p class="task-tag">Backend</p><p class="task-priority">Medium</p></div>
+              <h4 class="task-title">Set up staging site</h4>
+              <div class="task-foot">
+                <time datetime="2026-10-18">Done 18 Oct</time>
+                <span class="avatar a2"><span aria-hidden="true">RV</span><span class="sr">Ravi Varma</span></span>
+              </div>
+            </article>
+
+            <article class="task priority-med is-done">
+              <div class="task-top"><p class="task-tag">Design</p><p class="task-priority">Medium</p></div>
+              <h4 class="task-title">Wireframe home and search</h4>
+              <div class="task-foot">
+                <time datetime="2026-10-14">Done 14 Oct</time>
+                <span class="avatar a3"><span aria-hidden="true">MK</span><span class="sr">Meera Kapoor</span></span>
+              </div>
+            </article>
+
+            <article class="task priority-low is-done">
+              <div class="task-top"><p class="task-tag">Content</p><p class="task-priority">Low</p></div>
+              <h4 class="task-title">Define user roles</h4>
+              <div class="task-foot">
+                <time datetime="2026-10-12">Done 12 Oct</time>
+                <span class="avatar a4"><span aria-hidden="true">SN</span><span class="sr">Sneha Nair</span></span>
+              </div>
+            </article>
+
+            <article class="task priority-low is-done">
+              <div class="task-top"><p class="task-tag">Backend</p><p class="task-priority">Low</p></div>
+              <h4 class="task-title">Create project repository</h4>
+              <div class="task-foot">
+                <time datetime="2026-10-10">Done 10 Oct</time>
+                <span class="avatar a2"><span aria-hidden="true">RV</span><span class="sr">Ravi Varma</span></span>
+              </div>
+            </article>
+          </section>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

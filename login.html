@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/auth.css">
+<title>Log in – Noted</title>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the form</a>
+<div class="page">
+  <aside class="brand">
+    <a class="logo" href="login.html">Noted</a>
+    <div>
+      <p class="pitch-title">Your notes and deadlines, in one place.</p>
+      <ul class="pitch-list">
+        <li>Keep class notes organised by subject</li>
+        <li>See every deadline on one list</li>
+        <li>Pick up where you left off on any device</li>
+      </ul>
+    </div>
+    <p class="brand-foot">College project demo</p>
+  </aside>
+
+  <main id="main" class="panel">
+    <div class="card">
+      <h1>Log in</h1>
+      <p class="lead">Welcome back. Enter your details to continue.</p>
+
+      <!-- A backend would remove "hidden" after a failed login -->
+      <p class="alert" role="alert" hidden>The email or password is incorrect. Check both and try again.</p>
+
+      <!-- Replace action with your backend endpoint -->
+      <form class="form" action="profile-setup.html" method="post">
+        <div class="field">
+          <label for="email">Email address</label>
+          <input class="control" id="email" name="email" type="email"
+                 placeholder="name@college.edu" autocomplete="email"
+                 required aria-describedby="email-error">
+          <p class="error" id="email-error">Enter a valid email address, like name@college.edu.</p>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input class="control" id="password" name="password" type="password"
+                 placeholder="Your password" autocomplete="current-password"
+                 required minlength="8" aria-describedby="password-error">
+          <p class="error" id="password-error">Enter your password (at least 8 characters).</p>
+        </div>
+
+        <div class="row">
+          <label class="check" for="remember">
+            <input id="remember" name="remember" type="checkbox">
+            Keep me logged in
+          </label>
+          <a href="forgot-password.html">Forgot your password?</a>
+        </div>
+
+        <button class="btn" type="submit">Log in</button>
+      </form>
+
+      <p class="switch">New to Noted? <a href="register.html">Create an account</a></p>
+    </div>
+  </main>
+</div>
+</body>
+</html>

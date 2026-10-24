@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/auth.css">
+<title>Set up your profile – Noted</title>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the form</a>
+<div class="page">
+  <aside class="brand">
+    <a class="logo" href="login.html">Noted</a>
+    <div>
+      <p class="pitch-title">Make Noted yours.</p>
+      <ul class="pitch-list">
+        <li>Choose a username and photo</li>
+        <li>Pick the subjects you study</li>
+        <li>Decide how often we remind you</li>
+      </ul>
+    </div>
+    <p class="brand-foot">College project demo</p>
+  </aside>
+
+  <main id="main" class="panel">
+    <div class="card">
+      <p class="step">Step 2 of 2: your profile</p>
+      <h1>Set up your profile</h1>
+      <p class="lead">This takes a minute and you can edit it later.</p>
+
+      <form class="form" action="login.html" method="post" enctype="multipart/form-data">
+        <div class="field">
+          <label for="username">Username</label>
+          <input class="control" id="username" name="username" type="text"
+                 placeholder="asha_rao" autocomplete="username"
+                 required minlength="3" maxlength="20" pattern="[a-z0-9_]{3,20}"
+                 aria-describedby="username-hint username-error">
+          <p class="hint" id="username-hint">3 to 20 characters: lowercase letters, numbers and underscores.</p>
+          <p class="error" id="username-error">Use 3 to 20 lowercase letters, numbers or underscores.</p>
+        </div>
+
+        <div class="field">
+          <label for="photo">Profile photo <span class="optional">(optional)</span></label>
+          <input class="file" id="photo" name="photo" type="file"
+                 accept="image/png, image/jpeg" aria-describedby="photo-hint">
+          <p class="hint" id="photo-hint">PNG or JPG. A square photo works best.</p>
+        </div>
+
+        <div class="field">
+          <label for="year">Year of study</label>
+          <select class="control" id="year" name="year" required aria-describedby="year-error">
+            <option value="" selected disabled>Choose your year</option>
+            <option value="1">First year</option>
+            <option value="2">Second year</option>
+            <option value="3">Third year</option>
+            <option value="4">Fourth year</option>
+            <option value="other">Other</option>
+          </select>
+          <p class="error" id="year-error">Choose your year of study.</p>
+        </div>
+
+        <fieldset>
+          <legend>Subjects you study <span class="optional">(pick any)</span></legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="subjects" value="programming"><span>Programming</span></label>
+            <label class="chip"><input type="checkbox" name="subjects" value="maths"><span>Maths</span></label>
+            <label class="chip"><input type="checkbox" name="subjects" value="databases"><span>Databases</span></label>
+            <label class="chip"><input type="checkbox" name="subjects" value="networks"><span>Networks</span></label>
+            <label class="chip"><input type="checkbox" name="subjects" value="reasoning"><span>Reasoning</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="bio">Short bio <span class="optional">(optional)</span></label>
+          <textarea class="control" id="bio" name="bio" maxlength="200"
+                    placeholder="Tell others what you are studying or working on."
+                    aria-describedby="bio-hint"></textarea>
+          <p class="hint" id="bio-hint">Up to 200 characters.</p>
+        </div>
+
+        <fieldset>
+          <legend>Reminders</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="reminders" value="daily" checked>
+              <span>Daily summary<small>One email each morning with what is due.</small></span></label>
+            <label class="choice"><input type="radio" name="reminders" value="deadlines">
+              <span>Deadlines only<small>An email the day before something is due.</small></span></label>
+            <label class="choice"><input type="radio" name="reminders" value="off">
+              <span>No emails<small>You will only see reminders in the app.</small></span></label>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button class="btn" type="submit">Save profile</button>
+          <a class="btn btn-ghost" href="login.html">Skip for now</a>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
+</body>
+</html>
